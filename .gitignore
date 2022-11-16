@@ -1,4 +1,4 @@
 a.out
 a.exe
 *.o
-libft/libft.h.gch
+*.gch

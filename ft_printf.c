@@ -11,14 +11,19 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int ft_printf(const char *str, ...)
+int ft_printf(const char *s, ...)
 {
 	va_list args;
+	const char *str;
 	int i;
 
-	i = -1;
-	va_start(args, str);
+	i = 0;
+	str = ft_strdup(s);
+	if (!str)
+		return (0);
+	va_start(args, s);
 	i = intput_parser(str, args);
 	va_end(args);
 	return (i);
@@ -40,10 +45,10 @@ int intput_parser(const char *str, va_list args)
 		}
 		else if (str[i] == '%' && str[i + 1])
 		{
-			count++;
+			i++;
 			if (is_arg(str[i]))
 			{
-				count = count + insert_value(str[i], args);
+				count = count + format_arg(str[i], args);
 			}
 			else
 			{
@@ -67,21 +72,21 @@ int format_arg(char c, va_list args)
 
 	count = 0;
 	if (c == 'c')
-		count = char_format(args);
+		count = char_format(va_arg(args, int));
 	else if (c == 's')
-		count = string_format(args);
+		count = string_format(va_arg(args, char *));
 	else if (c == 'p')
-		count = pointer_format(args);
+		count = pointer_format(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
-		count = digit_format(args);
+		count = digit_format(va_arg(args, int));
 	else if (c == 'u')
-		count = unsigned_format(args);
+		count = unsigned_format(va_arg(args, unsigned long));
 	else if (c == 'x')
-		count = hexa_format(args);
+		count = hexa_format(va_arg(args, unsigned long));
 	else if (c == 'X')
-		count = upper_hexa_format(args);
+		count = upper_hexa_format(va_arg(args, unsigned long));
 	else if (c == '%')
-		count = percent_format(args);
+		count = percent_format(c);
 	return (count);
 }
 
@@ -97,9 +102,27 @@ int string_format(char *str)
 	return (ft_strlen(str));
 }
 
-int pointer_format(void *ptr);
-int digit_format(int digit);
-int unsigned_format(unsigned long ul);
-int hexa_format(unsigned long hexa);
-int upper_hexa_format(unsigned long hexa);
-int percent_format(char c);
+int pointer_format(void *ptr)
+{
+	return (1);
+}
+int digit_format(int digit)
+{
+	return (1);
+}
+int unsigned_format(unsigned long ul)
+{
+	return (1);
+}
+int hexa_format(unsigned long hexa)
+{
+	return (1);
+}
+int upper_hexa_format(unsigned long hexa)
+{
+	return (1);
+}
+int percent_format(char c)
+{
+	return (1);
+}

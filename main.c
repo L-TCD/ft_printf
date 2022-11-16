@@ -20,12 +20,13 @@ int	main()
 	printf("*** Test 0 : sans rien ***\n");
 	printf("real: string de test\n");
 	ft_printf("mine: string de test\n");
-
+	printf("\n");
 	printf("*** Test 1 : valeur de retour sans rien ***\n");
-	printf("valeur de retour du titre de Test 2 : %d\n", printf("*** Test  : sans rien ***\n"));
-	ft_printf("valeur de retour du titre de Test 2 : %d\n", printf("*** Test  : sans rien ***\n"));
-
+	printf("real size : %d\n", printf("*** Test 1 : valeur de retour sans rien ***\n"));
+	printf("mine size : %d\n", ft_printf("*** Test 1 : valeur de retour sans rien ***\n"));
+	printf("\n");
 	printf("*** Test 2 : char = 'z' ***\n");
 	printf("valeur de retour du titre de Test 2 : %c\n", 'z');
 	ft_printf("valeur de retour du titre de Test 2 : %c\n", 'z');
+	printf("\n");
 }
