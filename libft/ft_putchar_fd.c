@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 06:09:32 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/16 06:10:26 by lcoissar         ###   ########lyon.fr   */
+/*   Created: 2021/08/17 15:12:07 by elraira-          #+#    #+#             */
+/*   Updated: 2021/10/03 22:59:38 by elraira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
-{
+#include "libft.h"
 
+int	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+	return (1);
 }
