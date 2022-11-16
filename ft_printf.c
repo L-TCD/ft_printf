@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/16 06:31:42 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/16 06:39:22 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_printf(const char *str, ...)
 {
 	va_list		args;
-	const char	*str;
 	int			i;
 
 	i = 0;
