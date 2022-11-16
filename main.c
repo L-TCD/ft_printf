@@ -20,4 +20,8 @@ int	main()
 	printf("*** Test 0 : sans rien ***\n");
 	printf("real: string de test\n");
 	ft_printf("mine: string de test\n");
+
+	printf("*** Test  : sans rien ***\n");
+	printf("valeur de retour du titre de Test 2 : %d\n", printf("*** Test  : sans rien ***\n"));
+	ft_printf("valeur de retour du titre de Test 2 : %d\n", printf("*** Test  : sans rien ***\n"));
 }
