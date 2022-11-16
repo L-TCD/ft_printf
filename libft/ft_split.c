@@ -3,58 +3,104 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 12:04:27 by elraira-          #+#    #+#             */
-/*   Updated: 2021/08/18 12:43:06 by elraira-         ###   ########.fr       */
+/*   Created: 2022/11/09 08:37:16 by lcoissar          #+#    #+#             */
+/*   Updated: 2022/11/15 06:36:02 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_countword(char const *s, char c)
+static int	word_count(char const *s, char c)
 {
-	size_t	count;
+	int	count;
+	int	i;
 
-	if (!*s)
-		return (0);
 	count = 0;
-	while (*s)
+	i = 0;
+	while (s[i])
 	{
-		while (*s == c)
-			s++;
-		if (*s)
-			count++;
-		while (*s != c && *s)
-			s++;
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
+		while (s[i] && s[i] != c)
+			i++;
+		count++;
 	}
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+static char	*ft_strndup(const char *str, int n)
 {
-	char	**lst;
-	size_t	word_len;
 	int		i;
+	int		len_max;
+	char	*dest;
 
-	lst = (char **)malloc((ft_countword(s, c) + 1) * sizeof(char *));
-	if (!s || !lst)
-		return (0);
+	len_max = ft_strlen(str);
+	if (len_max > n)
+		len_max = n;
+	dest = malloc(len_max + 1);
+	if (!dest)
+		return (NULL);
 	i = 0;
-	while (*s)
+	while (i < len_max)
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s)
+		dest[i] = str[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+static void	free_all(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+		free(strs[i++]);
+	free(strs);
+}
+
+static char	**fill_arr(char **strs, char const *s, char c)
+{
+	int		i;
+	int		j;
+	int		index;
+
+	strs[word_count(s, c)] = 0;
+	i = 0;
+	index = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
+		j = i;
+		while (s[i] && s[i] != c)
+			i++;
+		strs[index] = ft_strndup(&s[j], (i - j));
+		if (strs[index++] == NULL)
 		{
-			if (!ft_strchr(s, c))
-				word_len = ft_strlen(s);
-			else
-				word_len = ft_strchr(s, c) - s;
-			lst[i++] = ft_substr(s, 0, word_len);
-			s += word_len;
+			free_all(strs);
+			return (NULL);
 		}
 	}
-	lst[i] = NULL;
-	return (lst);
+	return (strs);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**strs;
+
+	if (!s)
+		return (NULL);
+	strs = malloc(sizeof(char *) * (word_count(s, c) + 1));
+	if (!strs)
+		return (NULL);
+	strs = fill_arr(strs, s, c);
+	return (strs);
 }

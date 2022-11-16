@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 07:00:05 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/11 07:23:23 by lcoissar         ###   ########lyon.fr   */
+/*   Created: 2022/11/08 07:29:13 by lcoissar          #+#    #+#             */
+/*   Updated: 2022/11/12 11:30:48 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+int	ft_atoi(const char *str)
 {
-	int		len;
-	int		i;
-	char	*ptr;
+	int						i;
+	int						sign;
+	long long unsigned int	result;
 
-	len = ft_strlen(str);
 	i = 0;
-	ptr = malloc((len + 1) * sizeof(char));
-	if (ptr != NULL)
+	sign = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			sign = -sign;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		while (i < len)
+		result = result * 10 + (str[i++] - '0');
+		if (result > LLONG_MAX)
 		{
-			ptr[i] = str[i];
-			i++;
+			if (sign > 0)
+				return (-1);
+			else
+				return (0);
 		}
-		ptr[i] = '\0';
 	}
-	return (ptr);
+	return (sign * result);
 }

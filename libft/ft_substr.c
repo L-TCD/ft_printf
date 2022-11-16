@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 16:58:51 by elraira-          #+#    #+#             */
-/*   Updated: 2021/08/19 11:01:41 by elraira-         ###   ########.fr       */
+/*   Created: 2022/11/09 08:35:15 by lcoissar          #+#    #+#             */
+/*   Updated: 2022/11/12 11:51:52 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,27 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
-	size_t	str_len;
+	char			*str;
+	size_t			len_max;
+	unsigned int	j;
 
 	if (!s)
-		return (0);
-	str_len = ft_strlen((char *)s);
-	if (start > str_len)
-		return (ft_strdup(""));
-	if (str_len - start >= len)
-		str = (char *)malloc((len + 1) * sizeof(char));
+		return (NULL);
+	if (start > (unsigned int)ft_strlen(s))
+		len_max = 0;
 	else
-		str = (char *)malloc((str_len - start + 1) * sizeof(char));
+		len_max = ft_strlen(&s[start]);
+	j = 0;
+	if (len < len_max)
+		len_max = len;
+	str = malloc((len_max + 1) * sizeof(char));
 	if (!str)
-		return (0);
-	ft_strlcpy(str, (s + start), (len + 1));
+		return (NULL);
+	while (j < len_max)
+	{
+		str[j] = s[start + j];
+		j++;
+	}
+	str[j] = '\0';
 	return (str);
 }

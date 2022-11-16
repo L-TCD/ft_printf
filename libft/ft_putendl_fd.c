@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elraira- <elraira-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 15:31:24 by elraira-          #+#    #+#             */
-/*   Updated: 2021/08/17 15:33:35 by elraira-         ###   ########.fr       */
+/*   Created: 2022/11/09 08:40:09 by lcoissar          #+#    #+#             */
+/*   Updated: 2022/11/12 12:31:01 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (!s)
-		return ;
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }

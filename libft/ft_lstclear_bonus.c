@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcoissar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 06:17:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/08 06:17:59 by lcoissar         ###   ########lyon.fr   */
+/*   Created: 2022/11/11 09:57:28 by lcoissar          #+#    #+#             */
+/*   Updated: 2022/11/11 12:18:55 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int i)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (i >= 'A' && i <= 'Z')
-		return (i + 32);
-	return (i);
+	t_list	*current;
+	t_list	*next;
+
+	if (!lst || !del)
+		return ;
+	current = *lst;
+	while (current)
+	{
+		next = current->next;
+		ft_lstdelone(current, del);
+		current = next;
+	}
+	*lst = NULL;
 }
