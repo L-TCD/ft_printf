@@ -40,7 +40,7 @@ int intput_parser(const char *str, va_list args)
 		}
 		else if (str[i] == '%' && str[i + 1])
 		{
-			pos++;
+			count++;
 			if (is_arg(str[i]))
 			{
 				count = count + insert_value(str[i], args);
@@ -85,8 +85,18 @@ int format_arg(char c, va_list args)
 	return (count);
 }
 
-int char_format(char c);
-int string_format(char *str);
+int char_format(char c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
+}
+
+int string_format(char *str)
+{
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
+}
+
 int pointer_format(void *ptr);
 int digit_format(int digit);
 int unsigned_format(unsigned long ul);
