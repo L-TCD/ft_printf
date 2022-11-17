@@ -1,7 +1,8 @@
 SRC	= $(addprefix $(SRC_DIR)/, \
 ft_printf.c \
-ft_char_format.c \
-ft_string_format.c \
+char_format.c \
+string_format.c \
+percent_format.c \
 )
 OBJS = $(SRC:.c=.o)
 SRC_DIR	= ./SRC
@@ -17,13 +18,13 @@ LIBFT	=	$(LIBFT_PATH)/libft.a
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
-		make -C $(LIBFT_PATH)
+		make bonus -C $(LIBFT_PATH)
 
 $(NAME) : $(OBJS)
 	cp $(LIBFT) $(NAME)
-	$(AR) -rcs $(NAME) $(OBJS)
+	$(AR) -rcs $(NAME) $(OBJS) $(LIBFT)
 
-%.o: %.c $(HEADER_FILE) Makefile
+%.o: %.c $(HEADER_FILE) Makefile $(LIBFT)
 	$(CC) $(FLAGS) -c $< -o $@ -I $(LIBFT)
 
 clean:

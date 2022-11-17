@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 08:59:49 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 09:33:52 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ int	format_arg(char c, va_list args)
 	// 	count = hexa_format(va_arg(args, unsigned long));
 	// else if (c == 'X')
 	// 	count = upper_hexa_format(va_arg(args, unsigned long));
-	// else if (c == '%')
-	// 	count = percent_format(c);
+	else if (c == '%')
+		count = percent_format();
 	return (count);
 }
 
@@ -116,11 +116,6 @@ int	digit_format(int digit)
 // }
 
 // int	upper_hexa_format(unsigned long hexa)
-// {
-// 	return (1);
-// }
-
-// int	percent_format(char c)
 // {
 // 	return (1);
 // }

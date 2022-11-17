@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:03:51 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 09:00:07 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 09:34:52 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	digit_format(int digit);
 // int	unsigned_format(unsigned long ul);
 // int	hexa_format(unsigned long hexa);
 // int	upper_hexa_format(unsigned long hexa);
-// int	percent_format(char c);
+int	percent_format();
 
 #endif

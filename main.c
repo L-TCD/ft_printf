@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:09:32 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 09:02:21 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 09:36:38 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,18 @@ int	main(void)
 	// printf("affichage : %d\n", -33);
 	// ft_printf("affichage : %d\n", -33);
 	// printf("\n");
-	printf("*** Test 4 : str = NULL ***\n");
-	char	*str = NULL;
-	int		pf = printf("%s", str);
+	// printf("*** Test 4 : str = NULL ***\n");
+	// char	*str = NULL;
+	// int		pf = printf("%s", str);
+	// printf("\n");
+	// int		ft_pf = ft_printf("%s", str);
+	// printf("\n");
+	// printf("pf : %d et ft_pf : %d", pf, ft_pf);
+	// printf("\n");
+	printf("*** Test 5 : percent ***\n");
+	int		pf = printf("%%");
 	printf("\n");
-	int		ft_pf = ft_printf("%s", str);
+	int		ft_pf = ft_printf("%%");
 	printf("\n");
 	printf("pf : %d et ft_pf : %d", pf, ft_pf);
 	printf("\n");
