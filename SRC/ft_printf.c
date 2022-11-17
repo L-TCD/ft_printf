@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 08:05:27 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 08:59:49 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,25 @@ int	format_arg(char c, va_list args)
 		count = char_format(va_arg(args, int));
 	else if (c == 's')
 		count = string_format(va_arg(args, char *));
-	else if (c == 'p')
-		count = pointer_format(va_arg(args, void *));
+	// else if (c == 'p')
+	// 	count = pointer_format(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
 		count = digit_format(va_arg(args, int));
-	else if (c == 'u')
-		count = unsigned_format(va_arg(args, unsigned long));
-	else if (c == 'x')
-		count = hexa_format(va_arg(args, unsigned long));
-	else if (c == 'X')
-		count = upper_hexa_format(va_arg(args, unsigned long));
-	else if (c == '%')
-		count = percent_format(c);
+	// else if (c == 'u')
+	// 	count = unsigned_format(va_arg(args, unsigned long));
+	// else if (c == 'x')
+	// 	count = hexa_format(va_arg(args, unsigned long));
+	// else if (c == 'X')
+	// 	count = upper_hexa_format(va_arg(args, unsigned long));
+	// else if (c == '%')
+	// 	count = percent_format(c);
 	return (count);
 }
 
-int	pointer_format(void *ptr)
-{
-	return (1);
-}
+// int	pointer_format(void *ptr)
+// {
+// 	return (1);
+// }
 
 int	digit_format(int digit)
 {
@@ -105,22 +105,22 @@ int	digit_format(int digit)
 	return (len);
 }
 
-int	unsigned_format(unsigned long ul)
-{
-	return (1);
-}
+// int	unsigned_format(unsigned long ul)
+// {
+// 	return (1);
+// }
 
-int	hexa_format(unsigned long hexa)
-{
-	return (1);
-}
+// int	hexa_format(unsigned long hexa)
+// {
+// 	return (1);
+// }
 
-int	upper_hexa_format(unsigned long hexa)
-{
-	return (1);
-}
+// int	upper_hexa_format(unsigned long hexa)
+// {
+// 	return (1);
+// }
 
-int	percent_format(char c)
-{
-	return (1);
-}
+// int	percent_format(char c)
+// {
+// 	return (1);
+// }

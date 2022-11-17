@@ -61,7 +61,7 @@ $(NAME) : $(OBJS)
 	$(AR) -rcs $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER_FILE) Makefile
-	$(CC) $(FLAGS) -c $< -o $@  -I $(INC_DIR)
+	$(CC) $(FLAGS) -c $< -o $@ -I $(INC_DIR)
 
 clean:
 	rm -f $(OBJS) $(OBJS_BONUS)

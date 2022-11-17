@@ -5,12 +5,12 @@ ft_string_format.c \
 )
 OBJS = $(SRC:.c=.o)
 SRC_DIR	= ./SRC
-INC_DIR	= .
+INC_DIR	= ./INC
 NAME	= libftprintf.a
 CC = gcc
 AR = ar
 FLAGS = -Wall -Wextra -Werror
-HEADER_FILE	= libft.h
+HEADER_FILE	= $(INC_DIR)/ft_printf.h
 LIBFT_PATH	=	./libft
 LIBFT	=	$(LIBFT_PATH)/libft.a
 
@@ -24,7 +24,7 @@ $(NAME) : $(OBJS)
 	$(AR) -rcs $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER_FILE) Makefile
-	$(CC) $(FLAGS) -c $< -o $@  -I $(LIBFT_PATH)
+	$(CC) $(FLAGS) -c $< -o $@ -I $(LIBFT)
 
 clean:
 	make clean -C $(LIBFT_PATH)
