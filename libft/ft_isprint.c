@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcoissar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 02:46:41 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/08 02:46:44 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 05:49:42 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isprint(int c)
 {
-	if ((c >= ' ' && c <= '~'))
-		return (1);
-	return (0);
+	return (c >= ' ' && c <= '~');
 }
