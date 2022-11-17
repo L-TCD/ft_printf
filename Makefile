@@ -1,5 +1,7 @@
 SRC	= $(addprefix $(SRC_DIR)/, \
 ft_printf.c \
+ft_char_format.c \
+ft_string_format.c \
 )
 OBJS = $(SRC:.c=.o)
 SRC_DIR	= ./SRC

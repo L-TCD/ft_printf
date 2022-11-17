@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 07:31:32 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 08:05:27 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printf(const char *s, ...)
 	va_start(args, s);
 	i = intput_parser(str, args);
 	va_end(args);
-	free(str);
+	free((void *)str);
 	return (i);
 }
 
@@ -87,18 +87,6 @@ int	format_arg(char c, va_list args)
 	else if (c == '%')
 		count = percent_format(c);
 	return (count);
-}
-
-int	char_format(char c)
-{
-	ft_putchar_fd(c, 1);
-	return (1);
-}
-
-int	string_format(char *str)
-{
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
 }
 
 int	pointer_format(void *ptr)
