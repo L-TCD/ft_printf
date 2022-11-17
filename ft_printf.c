@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 06:40:24 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 06:55:23 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	intput_parser(const char *str, va_list args)
 	{
 		if (str[i] != '%')
 		{
-			count = count++ + ft_putchar_fd(str[i], 1);
+			ft_putchar_fd(str[i], 1);
+			count++;
 		}
 		else if (str[i] == '%' && str[i + 1])
 		{
@@ -107,7 +108,12 @@ int	pointer_format(void *ptr)
 
 int	digit_format(int digit)
 {
-	return (1);
+	char	*str;
+	int		len;
+
+	str = ft_itoa(digit);
+	len = string_format(str);
+	return (len);
 }
 
 int	unsigned_format(unsigned long ul)
