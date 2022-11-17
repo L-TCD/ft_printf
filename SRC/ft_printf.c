@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 09:33:52 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 12:10:58 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	format_arg(char c, va_list args)
 	// 	count = pointer_format(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
 		count = digit_format(va_arg(args, int));
-	// else if (c == 'u')
-	// 	count = unsigned_format(va_arg(args, unsigned long));
+	else if (c == 'u')
+		count = unsigned_format(va_arg(args, unsigned long));
 	// else if (c == 'x')
 	// 	count = hexa_format(va_arg(args, unsigned long));
 	// else if (c == 'X')

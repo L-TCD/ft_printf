@@ -3,6 +3,9 @@ ft_printf.c \
 char_format.c \
 string_format.c \
 percent_format.c \
+unsigned_format.c \
+digit_format.c \
+utils.c \
 )
 OBJS = $(SRC:.c=.o)
 SRC_DIR	= ./SRC

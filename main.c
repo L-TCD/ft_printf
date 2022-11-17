@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:09:32 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 09:36:38 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 11:04:31 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,17 @@ int	main(void)
 	// printf("\n");
 	// printf("pf : %d et ft_pf : %d", pf, ft_pf);
 	// printf("\n");
-	printf("*** Test 5 : percent ***\n");
-	int		pf = printf("%%");
+	// printf("*** Test 5 : percent ***\n");
+	// int		pf = printf("%%");
+	// printf("\n");
+	// int		ft_pf = ft_printf("%%");
+	// printf("\n");
+	// printf("pf : %d et ft_pf : %d", pf, ft_pf);
+	// printf("\n");
+	printf("*** Test 5 : ul ***\n");
+	int		pf = printf("%u", -10);
 	printf("\n");
-	int		ft_pf = ft_printf("%%");
+	int		ft_pf = ft_printf("%u", -10);
 	printf("\n");
 	printf("pf : %d et ft_pf : %d", pf, ft_pf);
 	printf("\n");
