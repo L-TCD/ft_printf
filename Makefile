@@ -1,10 +1,8 @@
 SRC	= $(addprefix $(SRC_DIR)/, \
-ft_... \
-
+ft_printf.c \
 )
-
 OBJS = $(SRC:.c=.o)
-SRC_DIR	= .
+SRC_DIR	= ./SRC
 INC_DIR	= .
 NAME	= libftprintf.a
 CC = gcc
@@ -24,7 +22,7 @@ $(NAME) : $(OBJS)
 	$(AR) -rcs $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER_FILE) Makefile
-	$(CC) $(FLAGS) -c $< -o $@  -I $(INC_DIR) $(LIBFT_PATH)
+	$(CC) $(FLAGS) -c $< -o $@  -I $(LIBFT_PATH)
 
 clean:
 	make clean -C $(LIBFT_PATH)

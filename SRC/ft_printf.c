@@ -6,12 +6,11 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 07:03:35 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 07:31:32 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "../INC/ft_printf.h"
 
 int	ft_printf(const char *s, ...)
 {
@@ -26,6 +25,7 @@ int	ft_printf(const char *s, ...)
 	va_start(args, s);
 	i = intput_parser(str, args);
 	va_end(args);
+	free(str);
 	return (i);
 }
 
