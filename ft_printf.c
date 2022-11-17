@@ -6,18 +6,18 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/16 06:39:22 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/17 06:40:24 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int ft_printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
-	va_list args;
-	const char *str;
-	int i;
+	va_list		args;
+	const char	*str;
+	int			i;
 
 	i = 0;
 	str = ft_strdup(s);
@@ -29,10 +29,10 @@ int ft_printf(const char *s, ...)
 	return (i);
 }
 
-int intput_parser(const char *str, va_list args)
+int	intput_parser(const char *str, va_list args)
 {
-	int count;
-	int i;
+	int	count;
+	int	i;
 
 	count = 0;
 	i = 0;
@@ -40,16 +40,13 @@ int intput_parser(const char *str, va_list args)
 	{
 		if (str[i] != '%')
 		{
-			ft_putchar_fd(str[i], 1);
-			count++;
+			count = count++ + ft_putchar_fd(str[i], 1);
 		}
 		else if (str[i] == '%' && str[i + 1])
 		{
 			i++;
 			if (is_arg(str[i]))
-			{
 				count = count + format_arg(str[i], args);
-			}
 			else
 			{
 				ft_putchar_fd(str[i], 1);
@@ -61,14 +58,15 @@ int intput_parser(const char *str, va_list args)
 	return (count);
 }
 
-int is_arg(char c)
+int	is_arg(char c)
 {
-	return (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == '%');
+	return (c == 'c' || c == 's' || c == 'p' || c == 'd'
+		|| c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == '%');
 }
 
-int format_arg(char c, va_list args)
+int	format_arg(char c, va_list args)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (c == 'c')
@@ -90,39 +88,44 @@ int format_arg(char c, va_list args)
 	return (count);
 }
 
-int char_format(char c)
+int	char_format(char c)
 {
 	ft_putchar_fd(c, 1);
 	return (1);
 }
 
-int string_format(char *str)
+int	string_format(char *str)
 {
 	ft_putstr_fd(str, 1);
 	return (ft_strlen(str));
 }
 
-int pointer_format(void *ptr)
+int	pointer_format(void *ptr)
 {
 	return (1);
 }
-int digit_format(int digit)
+
+int	digit_format(int digit)
 {
 	return (1);
 }
-int unsigned_format(unsigned long ul)
+
+int	unsigned_format(unsigned long ul)
 {
 	return (1);
 }
-int hexa_format(unsigned long hexa)
+
+int	hexa_format(unsigned long hexa)
 {
 	return (1);
 }
-int upper_hexa_format(unsigned long hexa)
+
+int	upper_hexa_format(unsigned long hexa)
 {
 	return (1);
 }
-int percent_format(char c)
+
+int	percent_format(char c)
 {
 	return (1);
 }
