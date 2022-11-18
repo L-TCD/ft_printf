@@ -6,6 +6,9 @@ percent_format.c \
 unsigned_format.c \
 digit_format.c \
 utils.c \
+pointer_format.c \
+hexa_format.c \
+upper_hexa_format.c \
 )
 OBJS = $(SRC:.c=.o)
 SRC_DIR	= ./SRC

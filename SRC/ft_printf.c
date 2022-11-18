@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:00:56 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/18 05:16:45 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 07:07:59 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,20 @@ int	format_arg(char c, va_list args)
 		count = char_format(va_arg(args, int));
 	else if (c == 's')
 		count = string_format(va_arg(args, char *));
-	// else if (c == 'p')
-	// 	count = pointer_format(va_arg(args, void *));
+	else if (c == 'p')
+		count = pointer_format(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
 		count = digit_format(va_arg(args, int));
 	else if (c == 'u')
 		count = unsigned_format(va_arg(args, unsigned long));
-	// else if (c == 'x')
-	// 	count = hexa_format(va_arg(args, unsigned long));
-	// else if (c == 'X')
-	// 	count = upper_hexa_format(va_arg(args, unsigned long));
+	else if (c == 'x')
+		count = hexa_format(va_arg(args, unsigned long));
+	else if (c == 'X')
+		count = upper_hexa_format(va_arg(args, unsigned long));
 	else if (c == '%')
 		count = percent_format();
 	return (count);
 }
-
-// int	pointer_format(void *ptr)
-// {
-// 	return (1);
-// }
 
 int	digit_format(int digit)
 {
@@ -104,13 +99,3 @@ int	digit_format(int digit)
 	free(str);
 	return (len);
 }
-
-// int	hexa_format(unsigned long hexa)
-// {
-// 	return (1);
-// }
-
-// int	upper_hexa_format(unsigned long hexa)
-// {
-// 	return (1);
-// }

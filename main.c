@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 06:09:32 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 11:04:31 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 07:11:48 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,23 @@ int	main(void)
 	// printf("\n");
 	// printf("pf : %d et ft_pf : %d", pf, ft_pf);
 	// printf("\n");
-	printf("*** Test 5 : ul ***\n");
-	int		pf = printf("%u", -10);
+	// printf("*** Test 5 : ul ***\n");
+	// int		pf = printf("%u", -10);
+	// printf("\n");
+	// int		ft_pf = ft_printf("%u", -10);
+	// printf("\n");
+	// printf("pf : %d et ft_pf : %d", pf, ft_pf);
+	// printf("\n");
+	printf("*** Test 6 : ul ***\n");
+	void	*ptr = malloc(1);
+	if (!ptr)
+		return (1);
+	int		pf = printf("%p", ptr);
 	printf("\n");
-	int		ft_pf = ft_printf("%u", -10);
+	int		ft_pf = ft_printf("%p", ptr);
 	printf("\n");
 	printf("pf : %d et ft_pf : %d", pf, ft_pf);
 	printf("\n");
+	free(ptr);
+	return (0);
 }
