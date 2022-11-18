@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 07:05:24 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/18 07:14:30 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 09:43:48 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int	hexa_format(unsigned long hexa)
 {
-	(void)hexa;
-	return (1);
+	char	*str;
+	int		count;
+
+	str = itoa_base(hexa, "0123456789abcdef");
+	count = string_format(str);
+	free(str);
+	return (count);
 }

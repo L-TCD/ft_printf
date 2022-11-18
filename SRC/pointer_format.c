@@ -6,11 +6,12 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 07:02:31 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/18 07:28:40 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 07:44:35 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INC/ft_printf.h"
+#include <stdio.h>
 
 int	pointer_format(void *ptr)
 {
