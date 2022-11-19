@@ -1,5 +1,7 @@
 a.out
 a.exe
+main.c
 *.o
 *.gch
+*.a
 printfTester/

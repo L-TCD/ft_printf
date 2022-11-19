@@ -17,9 +17,7 @@
 # include "../libft/libft.h"
 
 int		ft_printf(const char *str, ...);
-int		intput_parser(const char *str, va_list args);
-int		is_arg(char c);
-int		format_arg(char c, va_list args);
+
 int		char_format(char c);
 int		string_format(char *str);
 int		pointer_format(void *ptr);
@@ -28,6 +26,7 @@ int		unsigned_format(unsigned int ul);
 int		hexa_format(unsigned int hexa);
 int		upper_hexa_format(unsigned int hexa);
 int		percent_format(void);
+
 char	*itoa_base(unsigned long long num, char *base);
 
 #endif

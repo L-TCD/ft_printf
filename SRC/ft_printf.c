@@ -12,6 +12,11 @@
 
 #include "../INC/ft_printf.h"
 
+static int	put_and_count_char(char c, int fd);
+static int	format_arg(char c, va_list args);
+static int	is_arg(char c);
+static int	intput_parser(const char *str, va_list args);
+
 int	ft_printf(const char *s, ...)
 {
 	va_list		args;
@@ -39,20 +44,14 @@ int	intput_parser(const char *str, va_list args)
 	while (str[i])
 	{
 		if (str[i] != '%')
-		{
-			ft_putchar_fd(str[i], 1);
-			count++;
-		}
+			count += put_and_count_char(str[i], 1);
 		else if (str[i] == '%' && str[i + 1])
 		{
 			i++;
 			if (is_arg(str[i]))
-				count = count + format_arg(str[i], args);
+				count += format_arg(str[i], args);
 			else
-			{
-				ft_putchar_fd(str[i], 1);
-				count++;
-			}
+				count += put_and_count_char(str[i], 1);
 		}
 		i++;
 	}
@@ -87,4 +86,10 @@ int	format_arg(char c, va_list args)
 	else if (c == '%')
 		count = percent_format();
 	return (count);
+}
+
+static int	put_and_count_char(char c, int fd)
+{
+	ft_putchar_fd(c, fd);
+	return (1);
 }

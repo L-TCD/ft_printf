@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 11:10:24 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/19 07:22:56 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/19 07:58:08 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static size_t	find_num_len(unsigned long long num, char *base);
 
 char	*itoa_base(unsigned long long num, char *base)
 {
-	char	*str;
+	char		*str;
 	size_t		num_len;
 	size_t		base_len;
 
@@ -28,7 +28,7 @@ char	*itoa_base(unsigned long long num, char *base)
 	while (num_len--)
 	{
 		str[num_len] = base[num % base_len];
-		num = num/base_len;
+		num = num / base_len;
 	}
 	return (str);
 }
@@ -42,7 +42,7 @@ static size_t	find_num_len(unsigned long long num, char *base)
 	base_len = ft_strlen(base);
 	while (num >= base_len)
 	{
-		num = num /base_len;
+		num = num / base_len;
 		len ++;
 	}
 	return (len);
