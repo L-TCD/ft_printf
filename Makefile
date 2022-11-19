@@ -31,7 +31,7 @@ $(NAME) : $(OBJS)
 	$(AR) -rcs $(NAME) $(OBJS) $(LIBFT)
 
 %.o: %.c $(HEADER_FILE) Makefile $(LIBFT)
-	$(CC) $(FLAGS) -c $< -o $@ -I $(LIBFT)
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	make clean -C $(LIBFT_PATH)

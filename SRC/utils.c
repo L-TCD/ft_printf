@@ -6,7 +6,7 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 11:10:24 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 12:09:59 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/19 07:22:56 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static size_t	find_num_len(unsigned long long num, char *base);
 char	*itoa_base(unsigned long long num, char *base)
 {
 	char	*str;
-	int		num_len;
-	int		base_len;
+	size_t		num_len;
+	size_t		base_len;
 
 	num_len = find_num_len(num, base);
 	base_len = ft_strlen(base);

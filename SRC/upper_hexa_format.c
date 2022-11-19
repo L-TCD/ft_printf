@@ -12,7 +12,7 @@
 
 #include "../INC/ft_printf.h"
 
-int	upper_hexa_format(unsigned long hexa)
+int	upper_hexa_format(unsigned int hexa)
 {
 	char	*str;
 	int		count;

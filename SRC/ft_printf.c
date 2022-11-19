@@ -79,23 +79,12 @@ int	format_arg(char c, va_list args)
 	else if (c == 'd' || c == 'i')
 		count = digit_format(va_arg(args, int));
 	else if (c == 'u')
-		count = unsigned_format(va_arg(args, unsigned long));
+		count = unsigned_format(va_arg(args, unsigned int));
 	else if (c == 'x')
-		count = hexa_format(va_arg(args, unsigned long));
+		count = hexa_format(va_arg(args, unsigned int));
 	else if (c == 'X')
-		count = upper_hexa_format(va_arg(args, unsigned long));
+		count = upper_hexa_format(va_arg(args, unsigned int));
 	else if (c == '%')
 		count = percent_format();
 	return (count);
-}
-
-int	digit_format(int digit)
-{
-	char	*str;
-	int		len;
-
-	str = ft_itoa(digit);
-	len = string_format(str);
-	free(str);
-	return (len);
 }

@@ -24,10 +24,10 @@ int		char_format(char c);
 int		string_format(char *str);
 int		pointer_format(void *ptr);
 int		digit_format(int digit);
-int		unsigned_format(unsigned long ul);
-int		hexa_format(unsigned long hexa);
-int		upper_hexa_format(unsigned long hexa);
-int		percent_format();
+int		unsigned_format(unsigned int ul);
+int		hexa_format(unsigned int hexa);
+int		upper_hexa_format(unsigned int hexa);
+int		percent_format(void);
 char	*itoa_base(unsigned long long num, char *base);
 
 #endif
