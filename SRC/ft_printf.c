@@ -26,7 +26,7 @@ size_t	ft_printf(const char *s, ...)
 	count = 0;
 	str = ft_strdup(s);
 	if (!str)
-		return (0);
+		return (-1);
 	va_start(args, s);
 	count = intput_parser(str, args);
 	va_end(args);
