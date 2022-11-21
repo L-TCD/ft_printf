@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_format.c                                 :+:      :+:    :+:   */
+/*   string_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 07:58:33 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 08:48:23 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 08:21:11 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INC/ft_printf.h"
 
-int	string_format(char *str)
+size_t	string_format(char *str)
 {
 	char	*str2;
 

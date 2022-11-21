@@ -12,32 +12,32 @@
 
 #include "../INC/ft_printf.h"
 
-static int	put_and_count_char(char c, int fd);
-static int	format_arg(char c, va_list args);
-static int	is_arg(char c);
-static int	intput_parser(const char *str, va_list args);
+static size_t	put_and_count_char(char c, int fd);
+static size_t	format_arg(char c, va_list args);
+static size_t	is_arg(char c);
+static size_t	intput_parser(const char *str, va_list args);
 
-int	ft_printf(const char *s, ...)
+size_t	ft_printf(const char *s, ...)
 {
 	va_list		args;
 	const char	*str;
-	int			i;
+	size_t		count;
 
-	i = 0;
+	count = 0;
 	str = ft_strdup(s);
 	if (!str)
 		return (0);
 	va_start(args, s);
-	i = intput_parser(str, args);
+	count = intput_parser(str, args);
 	va_end(args);
 	free((void *)str);
-	return (i);
+	return (count);
 }
 
-int	intput_parser(const char *str, va_list args)
+size_t	intput_parser(const char *str, va_list args)
 {
-	int	count;
-	int	i;
+	size_t	count;
+	size_t	i;
 
 	count = 0;
 	i = 0;
@@ -58,15 +58,15 @@ int	intput_parser(const char *str, va_list args)
 	return (count);
 }
 
-int	is_arg(char c)
+size_t	is_arg(char c)
 {
 	return (c == 'c' || c == 's' || c == 'p' || c == 'd'
 		|| c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == '%');
 }
 
-int	format_arg(char c, va_list args)
+size_t	format_arg(char c, va_list args)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
 	if (c == 'c')
@@ -88,7 +88,7 @@ int	format_arg(char c, va_list args)
 	return (count);
 }
 
-static int	put_and_count_char(char c, int fd)
+static size_t	put_and_count_char(char c, int fd)
 {
 	ft_putchar_fd(c, fd);
 	return (1);

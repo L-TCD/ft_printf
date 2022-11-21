@@ -12,10 +12,10 @@
 
 #include "../INC/ft_printf.h"
 
-int	hexa_format(unsigned int hexa)
+size_t	hexa_format(unsigned int hexa)
 {
 	char	*str;
-	int		count;
+	size_t	count;
 
 	str = itoa_base(hexa, "0123456789abcdef");
 	count = string_format(str);

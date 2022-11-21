@@ -13,16 +13,11 @@
 #include "../INC/ft_printf.h"
 #include <stdio.h>
 
-int	pointer_format(void *ptr)
+size_t	pointer_format(void *ptr)
 {
 	char	*str;
 	int		count;
 
-	if (ptr == 0)
-	{
-		count = string_format("(nil)");
-		return (count);
-	}
 	string_format("0x");
 	count = 2;
 	str = itoa_base((unsigned long long)ptr, "0123456789abcdef");

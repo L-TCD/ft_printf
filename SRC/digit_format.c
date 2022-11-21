@@ -6,13 +6,13 @@
 /*   By: lcoissar <lcoissar@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 10:53:52 by lcoissar          #+#    #+#             */
-/*   Updated: 2022/11/17 10:54:59 by lcoissar         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 08:20:45 by lcoissar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INC/ft_printf.h"
 
-int	digit_format(int digit)
+size_t	digit_format(int digit)
 {
 	char	*str;
 	int		len;
