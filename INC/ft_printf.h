@@ -20,13 +20,13 @@ size_t	ft_printf(const char *str, ...);
 
 size_t	char_format(char c);
 size_t	string_format(char *str);
-size_t	pointer_format(void *ptr);
-size_t	digit_format(int digit);
-size_t	unsigned_format(unsigned int ul);
-size_t	hexa_format(unsigned int hexa);
-size_t	upper_hexa_format(unsigned int hexa);
+size_t	pointer_format(void *ptr, int *ret_error);
+size_t	digit_format(int digit, int *ret_error);
+size_t	unsigned_format(unsigned int ul, int *ret_error);
+size_t	hexa_format(unsigned int hexa, int *ret_error);
+size_t	upper_hexa_format(unsigned int hexa, int *ret_error);
 size_t	percent_format(void);
 
-char	*itoa_base(unsigned long long num, char *base);
+char	*itoa_base(unsigned long long num, char *base, int *ret_error);
 
 #endif

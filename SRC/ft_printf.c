@@ -13,28 +13,33 @@
 #include "../INC/ft_printf.h"
 
 static size_t	put_and_count_char(char c, int fd);
-static size_t	format_arg(char c, va_list args);
+static size_t	format_arg(char c, va_list args, int *ret_error);
 static size_t	is_arg(char c);
-static size_t	intput_parser(const char *str, va_list args);
+static size_t	intput_parser(const char *str, va_list args, int *ret_error);
 
 size_t	ft_printf(const char *s, ...)
 {
 	va_list		args;
 	const char	*str;
 	size_t		count;
+	int			ret_error;
 
-	count = 0;
+	ret_error = 0;
+	if (write(1, 0, 0) != 0)
+		return (-1);
 	str = ft_strdup(s);
 	if (!str)
 		return (-1);
 	va_start(args, s);
-	count = intput_parser(str, args);
+	count = intput_parser(str, args, &ret_error);
 	va_end(args);
 	free((void *)str);
+	if (ret_error)
+		return (-1);
 	return (count);
 }
 
-static size_t	intput_parser(const char *str, va_list args)
+static size_t	intput_parser(const char *str, va_list args, int *ret_error)
 {
 	size_t	count;
 	size_t	i;
@@ -49,7 +54,7 @@ static size_t	intput_parser(const char *str, va_list args)
 		{
 			i++;
 			if (is_arg(str[i]))
-				count += format_arg(str[i], args);
+				count += format_arg(str[i], args, ret_error);
 			else
 				count += put_and_count_char(str[i], 1);
 		}
@@ -64,7 +69,7 @@ static size_t	is_arg(char c)
 		|| c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == '%');
 }
 
-static size_t	format_arg(char c, va_list args)
+static size_t	format_arg(char c, va_list args, int *ret_error)
 {
 	size_t	count;
 
@@ -74,15 +79,15 @@ static size_t	format_arg(char c, va_list args)
 	else if (c == 's')
 		count = string_format(va_arg(args, char *));
 	else if (c == 'p')
-		count = pointer_format(va_arg(args, void *));
+		count = pointer_format(va_arg(args, void *), ret_error);
 	else if (c == 'd' || c == 'i')
-		count = digit_format(va_arg(args, int));
+		count = digit_format(va_arg(args, int), ret_error);
 	else if (c == 'u')
-		count = unsigned_format(va_arg(args, unsigned int));
+		count = unsigned_format(va_arg(args, unsigned int), ret_error);
 	else if (c == 'x')
-		count = hexa_format(va_arg(args, unsigned int));
+		count = hexa_format(va_arg(args, unsigned int), ret_error);
 	else if (c == 'X')
-		count = upper_hexa_format(va_arg(args, unsigned int));
+		count = upper_hexa_format(va_arg(args, unsigned int), ret_error);
 	else if (c == '%')
 		count = percent_format();
 	return (count);

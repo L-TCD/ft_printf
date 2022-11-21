@@ -12,12 +12,12 @@
 
 #include "../INC/ft_printf.h"
 
-size_t	hexa_format(unsigned int hexa)
+size_t	hexa_format(unsigned int hexa, int *ret_error)
 {
 	char	*str;
 	size_t	count;
 
-	str = itoa_base(hexa, "0123456789abcdef");
+	str = itoa_base(hexa, "0123456789abcdef", ret_error);
 	count = string_format(str);
 	free(str);
 	return (count);
