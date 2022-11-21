@@ -34,7 +34,7 @@ size_t	ft_printf(const char *s, ...)
 	return (count);
 }
 
-size_t	intput_parser(const char *str, va_list args)
+static size_t	intput_parser(const char *str, va_list args)
 {
 	size_t	count;
 	size_t	i;
@@ -58,13 +58,13 @@ size_t	intput_parser(const char *str, va_list args)
 	return (count);
 }
 
-size_t	is_arg(char c)
+static size_t	is_arg(char c)
 {
 	return (c == 'c' || c == 's' || c == 'p' || c == 'd'
 		|| c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == '%');
 }
 
-size_t	format_arg(char c, va_list args)
+static size_t	format_arg(char c, va_list args)
 {
 	size_t	count;
 
